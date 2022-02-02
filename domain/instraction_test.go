@@ -5,7 +5,7 @@ import (
 )
 
 func TestTurnRight(t *testing.T) {
-	cleaner := NewCleaner(0, 0)
+	cleaner := NewCleaner(0, 0, 0)
 	ins := TurnRight{}
 	ins.Do(&cleaner)
 	if cleaner.Location.Direction != 1 {
@@ -26,7 +26,7 @@ func TestTurnRight(t *testing.T) {
 }
 
 func TestTurnLeft(t *testing.T) {
-	cleaner := NewCleaner(0, 0)
+	cleaner := NewCleaner(0, 0, 0)
 	ins := TurnLeft{}
 	ins.Do(&cleaner)
 	if cleaner.Location.Direction != 3 {
@@ -47,7 +47,7 @@ func TestTurnLeft(t *testing.T) {
 }
 
 func TestForwardN(t *testing.T) {
-	cleaner := NewCleaner(0, 0)
+	cleaner := NewCleaner(0, 0, 0)
 	ins := ForwardNStep{N: 10}
 	ins.Do(&cleaner)
 	if cleaner.X != 0 || cleaner.Y != 10 {
@@ -56,7 +56,7 @@ func TestForwardN(t *testing.T) {
 }
 
 func TestBackwardN(t *testing.T) {
-	cleaner := NewCleaner(0, 0)
+	cleaner := NewCleaner(0, 0, 0)
 	ins := BackwardNStep{N: 10}
 	ins.Do(&cleaner)
 	if cleaner.X != 0 || cleaner.Y != -10 {
@@ -65,7 +65,7 @@ func TestBackwardN(t *testing.T) {
 }
 
 func TestRepeat(t *testing.T) {
-	cleaner := NewCleaner(0, 0)
+	cleaner := NewCleaner(0, 0, 0)
 	ins := Repeat{Ins: &Forward1Step{}, N: 10}
 	ins.Do(&cleaner)
 	if cleaner.X != 0 || cleaner.Y != 10 {
@@ -74,7 +74,7 @@ func TestRepeat(t *testing.T) {
 }
 
 func TestSequence(t *testing.T) {
-	cleaner := NewCleaner(0, 0)
+	cleaner := NewCleaner(0, 0, 0)
 	inss := []InstractionInterface{
 		&Backward1Step{},
 		&Repeat{Ins: &Forward1Step{}, N: 10},

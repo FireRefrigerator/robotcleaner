@@ -4,18 +4,25 @@ type RobotCleaner struct {
 	Location
 }
 
+const (
+	Direction_EAST = iota
+	Direction_SOUTH
+	Direction_WEST
+	Direction_NORTH
+)
+
 type Location struct {
 	X         int
 	Y         int
 	Direction int
 }
 
-func NewCleaner(x, y int) RobotCleaner {
+func NewCleaner(x, y, d int) RobotCleaner {
 	cleaner := RobotCleaner{
 		Location: Location{
 			X:         x,
 			Y:         y,
-			Direction: 0,
+			Direction: d,
 		},
 	}
 	return cleaner

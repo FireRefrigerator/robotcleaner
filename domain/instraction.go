@@ -62,31 +62,24 @@ func (ins BackwardNStep) Do(cleaner *RobotCleaner) {
 	}
 }
 
-const (
-	EAST = iota
-	SOUTH
-	WEST
-	NORTH
-)
-
 type TurnRight struct {
 }
 
 func (ins *TurnRight) Do(cleaner *RobotCleaner) {
-	if cleaner.Direction == NORTH {
-		cleaner.Direction = EAST
+	if cleaner.Direction == Direction_NORTH {
+		cleaner.Direction = Direction_EAST
 		return
 	}
-	if cleaner.Direction == EAST {
-		cleaner.Direction = SOUTH
+	if cleaner.Direction == Direction_EAST {
+		cleaner.Direction = Direction_SOUTH
 		return
 	}
-	if cleaner.Direction == SOUTH {
-		cleaner.Direction = WEST
+	if cleaner.Direction == Direction_SOUTH {
+		cleaner.Direction = Direction_WEST
 		return
 	}
-	if cleaner.Direction == WEST {
-		cleaner.Direction = NORTH
+	if cleaner.Direction == Direction_WEST {
+		cleaner.Direction = Direction_NORTH
 		return
 	}
 }
@@ -95,20 +88,20 @@ type TurnLeft struct {
 }
 
 func (ins *TurnLeft) Do(cleaner *RobotCleaner) {
-	if cleaner.Direction == NORTH {
-		cleaner.Direction = WEST
+	if cleaner.Direction == Direction_NORTH {
+		cleaner.Direction = Direction_WEST
 		return
 	}
-	if cleaner.Direction == EAST {
-		cleaner.Direction = NORTH
+	if cleaner.Direction == Direction_EAST {
+		cleaner.Direction = Direction_NORTH
 		return
 	}
-	if cleaner.Direction == SOUTH {
-		cleaner.Direction = EAST
+	if cleaner.Direction == Direction_SOUTH {
+		cleaner.Direction = Direction_EAST
 		return
 	}
-	if cleaner.Direction == WEST {
-		cleaner.Direction = SOUTH
+	if cleaner.Direction == Direction_WEST {
+		cleaner.Direction = Direction_SOUTH
 		return
 	}
 }
